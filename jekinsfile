@@ -1,15 +1,1 @@
-
-node('myslave1') {
-    // some block
-    properties([
-       parameters([
-           string (choice: ['AP','TOMCAT'], description: 'ENV', )
-         ])
-    ])
-    echo "Will deploy to ${DEPLOY_ENV}"
-    echo "succesfully connected"
-    sh label: '', script: '''cd ~
-    cd /home/osboxes/shell
-    ./file.sh
-    '''
-}
+# testin 1.2.3
