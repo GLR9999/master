@@ -1,1 +1,8 @@
-#!/bin/bash
+node('myslave1') {
+    // some block
+    properties([
+       parameters([
+           string (defaultValue:'', description: 'RESTRATING TOMCAT SERVIES'),
+           choice(name: 'Tomcat_Services_Type', choices ['select','AP','TOMCAT'],description: 'select the tomcats to restart
+         ]),
+    ])
