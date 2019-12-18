@@ -1,8 +1,15 @@
+
 node('myslave1') {
     // some block
     properties([
        parameters([
-           string (defaultValue:'', description: 'RESTRATING TOMCAT SERVIES'),
-           choice(name: 'Tomcat_Services_Type', choices ['select','AP','TOMCAT'],description: 'select the tomcats to restart
-         ]),
+           string (choice: ['AP','TOMCAT'], description: 'ENV', )
+         ])
     ])
+    echo "Will deploy to ${DEPLOY_ENV}"
+    echo "succesfully connected"
+    sh label: '', script: '''cd ~
+    cd /home/osboxes/shell
+    ./file.sh
+    '''
+}
