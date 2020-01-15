@@ -1,23 +1,20 @@
-parallel
-pipeline { 
-    agent any 
-    stages {
-        stage('stages Runing in parallel') {
-        failFast true
-        parallel {
-            stage('stage1') {
-                steps {
-                    echo "stage1"
-                    sleep 10
-                  }
-                }
-                stage('stage2') {
-                   steps {
-                     echo "stage2"
-                     sleep 10
-                  }
-                }
-            }
+pipeline {
+  agent any
+      environment {
+           name1 = "sandeep"
+           name2 = "reddy"
         }
-    }
+   stages {
+      stage('build') {
+             environment {
+              name3 = "Gollapalli"
+           }
+          steps {
+              echo "name1 ${name1}"
+              echo "name2 ${name2}"
+              echo "name3 ${name3}"
+              sh "printenv"
+          }
+     }
+  }
 }
